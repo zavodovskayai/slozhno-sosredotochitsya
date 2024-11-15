@@ -1,11 +1,11 @@
 
-/* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
+/* Основные стили проекта*/
 
 
 .page {
   font-family: var(--font-family);
   background-color: var(--background-color);
-  /* сохраните в разметке и стилях класс page. На его основе работает скрипт. */
+  background-attachment: fixed;
 }
 
 .decorated-zone::before {
