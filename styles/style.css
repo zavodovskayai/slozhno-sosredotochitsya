@@ -386,3 +386,9 @@
   }
 }
 
+@media (width <= 375px) {
+    .header__rec {
+        top: 10px;
+        right: 40px;
+    }
+}
