@@ -1,39 +1,33 @@
+/*https://get-color.ru/image/ - определитель цвета. Использую rgb, так как нужны полупрозрачные элементы*/
+
 .page.theme_dark {
-  --background-image: url("../images/cover-image-dark.png");
-  --accent-color: #ff0070;
-  --accent-color-opacity: #ff007066;
-  --text-color: #f1b2ce;
-  --background-color: #000028;
-  --header1-color: #db00ff;
-  --header2-color: var(--accent-color);
-  --header3-color: var(--background-color);
-  --decoration-color: var(--accent-color);
-  --rec-border: #FF0070;
-  --rec-radius-border: 1px solid #FF0070;
-  --rec-radius: 50%;
-  --rec-radius-back: #FF0070;
-  --rec-radius-shadow: 0 0 4px 2px #FF0070;
-  --rec-text: #FF0070;
-  --is-light: visible;
+  --bg_col: rgb(0,0,40);
+  --decor_col: rgb(255,0,112);
+  --decor_col_but: rgb(255,0,112, 0.6);
+  --bg_img: url("../images/cover-image-dark.png");
+  --rec: var(--decor_col);
+  --radius: 50%;
+  --rec_bg: var(--decor_col);
+  --shadow: 0 0 4px 2px var(--decor_col);
+  --head_col: rgb(219,0,255);
+  --text_head: var(--bg_col);
+  --common_col: var(--decor_col);
+  --text: rgb(88,65,101);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background-image: url("../images/cover-image-dark.png");
-    --accent-color: #ff0070;
-    --accent-color-opacity: #ff007066;
-    --text-color: #f1b2ce;
-    --background-color: #000028;
-    --header1-color: #db00ff;
-    --header2-color: var(--accent-color);
-    --header3-color: var(--background-color);
-    --decoration-color: var(--accent-color);
-    --rec-border: #FF0070;
-    --rec-radius-border: 1px solid #FF0070;
-    --rec-radius: 50%;
-    --rec-radius-back: #FF0070;
-    --rec-radius-shadow: 0 0 4px 2px #FF0070;
-    --rec-text: #FF0070;
-    --is-light: hidden;
+    --bg_col: rgb(0,0,40);
+    --decor_col: rgb(255,0,112);
+    --decor_col_but: rgb(255,0,112, 0.6);
+    --bg_img: url("../images/cover-image-dark.png");
+    --rec: var(--decor_col);
+    --radius: 50%;
+    --rec_bg: var(--decor_col);
+    --shadow: 0 0 4px 2px var(--decor_col);
+    --head_col: rgb(219,0,255);
+    --text_head: var(--bg_col);
+    --common_col: var(--decor_col);
+    --text: rgb(88,65,101);
     }
 }
