@@ -1,12 +1,12 @@
-
 :root {
-  --font-family: 'IBM Plex mono', monospace;
+  --font: 'IBM Plex mono', monospace;
   --fs-base: 18px;
-  --small-line-height: 83%;
-  --regular-line-height: 100%;
-  --large-line-height: 130%;
-  --bold-font-weight: 700;
-  --regular-font-weight: 400;
-  --font-style: normal;
-
+  --line: 100%;
+  --small_line: 85%;
+  --large_line: 130%;
+  --mobile-fs: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+  --desk-fs: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+  --bold: bold; /*700*/
+  --normal: normal; /*400*/
+  --gap: 10px;
 }
