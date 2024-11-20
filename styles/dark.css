@@ -1,33 +1,34 @@
 /*https://get-color.ru/image/ - определитель цвета. Использую rgb, так как нужны полупрозрачные элементы*/
 
 .page.theme_dark {
-  --bg_col: rgb(0,0,40);
-  --decor_col: rgb(255,0,112);
+  --bg_col: #000028;
+  --decor_col: #ff0070;
   --decor_col_but: rgb(255,0,112, 0.6);
   --bg_img: url("../images/cover-image-dark.png");
   --rec: var(--decor_col);
   --radius: 50%;
   --rec_bg: var(--decor_col);
   --shadow: 0 0 4px 2px var(--decor_col);
-  --head_col: rgb(219,0,255);
+  --head_col: #db00ff;
   --text_head: var(--bg_col);
   --common_col: var(--decor_col);
-  --text: rgb(88,65,101);
+  --text: #f1b2ce;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg_col: rgb(0,0,40);
-    --decor_col: rgb(255,0,112);
+    --bg_col: #000028;
+    --decor_col: #ff0070;
     --decor_col_but: rgb(255,0,112, 0.6);
+    --bg_img: url("../images/cover-image-dark.png");
     --bg_img: url("../images/cover-image-dark.png");
     --rec: var(--decor_col);
     --radius: 50%;
     --rec_bg: var(--decor_col);
     --shadow: 0 0 4px 2px var(--decor_col);
-    --head_col: rgb(219,0,255);
+    --head_col: #db00ff;
     --text_head: var(--bg_col);
     --common_col: var(--decor_col);
-    --text: rgb(88,65,101);
+    --text: #f1b2ce;
     }
 }
