@@ -83,7 +83,6 @@
 /*элементы в 1 линию*/
 .header__theme-menu-list {
   display: grid;
-  grid-auto-flow: column;
   gap: var(--gap);
 }
 
@@ -246,6 +245,7 @@
   .header {
     padding: calc(var(--gap) * 2);
   }
+
   .title {
     position: relative;
     font-size: var(--desk-fs);
@@ -281,6 +281,12 @@
 
   .content > .title_decor {
     grid-column: 2 / 3;
+  }
+
+  .header__theme-menu-list {
+    display: grid;
+    grid-auto-flow: column;
+    gap: var(--gap);
   }
 
   .img {
