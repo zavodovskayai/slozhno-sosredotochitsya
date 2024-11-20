@@ -272,6 +272,10 @@
     grid-column: 2 / 3;
   }
 
+  .content:nth-child(2) .card{
+    grid-column: 1 / 4;
+  }
+
   .content > .title_decor {
     grid-column: 2 / 3;
   }
