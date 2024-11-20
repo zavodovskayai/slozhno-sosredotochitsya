@@ -162,7 +162,7 @@
 }
 
 .content {
-  gap: calc(var(--gap) * 2.5);
+  gap: calc(var(--gap) * 3);
   grid-column: 1 / 4;
 }
 
