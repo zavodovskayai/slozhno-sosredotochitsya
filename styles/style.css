@@ -35,7 +35,8 @@
 
 .header {
   height: 100vh;
-  padding: 0 20px 0 0;
+  padding: var(--gap);
+  gap: var(--gap);
   background-image: var(--bg_img);
   position: relative;
   display: grid;
@@ -243,6 +244,9 @@
 }
 
 @media (width >= 768px) {
+  .header {
+    padding: calc(var(--gap) * 2);
+  }
   .title {
     position: relative;
     font-size: var(--desk-fs);
