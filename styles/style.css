@@ -35,7 +35,7 @@
 
 .header {
   height: 100vh;
-  padding-top: 10px;
+  padding: 0 20px 0 0;
   background-image: var(--bg_img);
   position: relative;
   display: grid;
