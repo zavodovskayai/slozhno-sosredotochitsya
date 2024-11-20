@@ -194,10 +194,6 @@
   text-shadow: 2px 2px 0 var(--common_col);
 }
 
-.link:focus-visible {
-  outline: none;
-}
-
 .link:hover {
   border-bottom: 1px solid var(--text);
 }
@@ -252,6 +248,10 @@
 
   .content, .content:nth-child(2) {
     grid-template-columns: repeat(3, 1fr);
+  }
+
+  .content:nth-child(2) .card {
+    grid-column: 1 / 4;
   }
   
   .header__theme-menu {
@@ -310,10 +310,6 @@
 
   .card {
     grid-column: 2 / 3;
-  }
-
-  .content:nth-child(2) .card {
-    grid-column: 1 / 4;
   }
 
   .content > .title_decor {
