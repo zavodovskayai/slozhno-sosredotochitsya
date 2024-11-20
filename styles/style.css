@@ -35,12 +35,14 @@
 
 .header {
   height: 100vh;
+  background-size: cover;
   padding: var(--gap);
   background-image: var(--bg_img);
   position: relative;
   display: grid;
   grid-template-rows: 1fr min-content 1fr;
   grid-template-columns: 1fr 1fr;
+  grid-auto-flow: column;
   align-items: center;
   justify-items: end;
   background-position: bottom; /*по макеты картинка видна снизу*/
@@ -76,7 +78,7 @@
 .header__theme-menu {
   justify-self: end;
   grid-column: 1 / 3;
-  padding: var(--gap);
+  /*padding: var(--gap);*/
 }
 
 /*элементы в 1 линию*/
