@@ -1,29 +1,29 @@
 .page.theme_light {
-  --bg_col: rgb(255,238,246);
-  --decor_col: rgb(53,52,48);
+  --bg_col: #fff1f7;
+  --decor_col: #353430;
   --decor_col_but: rgb(53,52,48,0.6);
   --bg_img: url("../images/cover-image-light.png");
   --rec: var(--bg_col);
   --rec_bg: var(--bg_col);
   --shadow: 0 0 4px 2px var(--bg_col);
-  --head_col: rgb(255,194,230);
+  --head_col: #ffc2e6;
   --text_head: var(--decor_col);
-  --common_col: rgb(255,141,203);
+  --common_col: #ff8dcb;
   --text: rgb(53,52,48);
 }
 
 @media (prefers-color-scheme: light) {
   :root {
-    --bg_col: rgb(255,238,246);
-    --decor_col: rgb(53,52,48);
+    --bg_col: #fff1f7;
+    --decor_col: #353430;
     --decor_col_but: rgb(53,52,48,0.6);
     --bg_img: url("../images/cover-image-light.png");
     --rec: var(--bg_col);
     --rec_bg: var(--bg_col);
     --shadow: 0 0 4px 2px var(--bg_col);
-    --head_col: rgb(255,194,230);
+    --head_col: #ffc2e6;
     --text_head: var(--decor_col);
-    --common_col: rgb(255,141,203);
+    --common_col: #ff8dcb;
     --text: rgb(53,52,48);
     }
 }
