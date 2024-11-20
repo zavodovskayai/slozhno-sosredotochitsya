@@ -6,7 +6,7 @@
 }
 
 .decorated-zone {
-  height: max(100%, 668px); /*устанавливаем максимальную высоту по шаблону*/
+  max-height: 668px; /*устанавливаем максимальную высоту по шаблону*/
 }
 
 .decorated-zone::after, 
@@ -36,7 +36,6 @@
 .header {
   height: 100vh;
   padding: var(--gap);
-  gap: var(--gap);
   background-image: var(--bg_img);
   position: relative;
   display: grid;
