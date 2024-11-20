@@ -249,10 +249,6 @@
   .content, .content:nth-child(2) {
     grid-template-columns: repeat(3, 1fr);
   }
-
-  .content:nth-child(2) .card {
-    grid-column: 1 / 4;
-  }
   
   .header__theme-menu {
     align-self: start;
