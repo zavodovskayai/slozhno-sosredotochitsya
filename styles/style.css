@@ -334,7 +334,6 @@
 
   .content:nth-child(2) {
     grid-template-rows: repeat(2, auto);
-    margin-bottom: 5px;
   }
 
   .content:nth-child(2) .content_title {
