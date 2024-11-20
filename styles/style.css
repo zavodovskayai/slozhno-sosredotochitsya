@@ -35,7 +35,7 @@
 
 .header {
   height: 100vh;
-  padding: 10px;
+  padding-top: 10px;
   background-image: var(--bg_img);
   position: relative;
   display: grid;
@@ -249,7 +249,7 @@
   .content, .content:nth-child(2) {
     grid-template-columns: repeat(3, 1fr);
   }
-  
+
   .header__theme-menu {
     align-self: start;
     justify-self: center;
@@ -275,6 +275,11 @@
 
   .content > .title_decor {
     grid-column: 2 / 4;
+  }
+
+  
+  .pictures_conteiner {
+    gap: calc(var(--gap) * 2);
   }
 }
 
@@ -310,10 +315,6 @@
 
   .content > .title_decor {
     grid-column: 2 / 3;
-  }
-
-  .pictures_conteiner {
-    gap: calc(var(--gap) * 2);
   }
 
   .img {
