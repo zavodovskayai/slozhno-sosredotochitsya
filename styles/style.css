@@ -426,9 +426,8 @@
     line-height: var(--large_line);
   }
 
-  .content_title:nth-child(2), .content_title:nth-child(3) {
-    margin-top: 0;
-    top: 0;
+  .att {
+    margin-top: -10px;
   }
 }
 
