@@ -41,7 +41,7 @@
   background-position: bottom; /*по макеты картинка видна снизу*/
   background-attachment: fixed;
   display: grid;
-  grid-template-rows: 1fr min-content 1fr;;
+  grid-template-rows: 1fr min-content 1fr;
   grid-template-columns: 1fr 1fr;
   grid-auto-flow: column;
   align-items: center;
@@ -120,7 +120,7 @@
   grid-column: 1 / 3;
   justify-self: start;
   text-shadow: 4px 4px 0 var(--common_col);
-  line-height: var(--small-line-height);
+  line-height: var(--small_line);
 }
 
 .hdr_txt {
