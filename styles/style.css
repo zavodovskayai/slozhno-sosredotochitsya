@@ -1,9 +1,12 @@
-
 /* Основные стили проекта*/
 .page {
   font-family: var(--font);
   background-color: var(--bg_col);
-  background-attachment: fixed; /*рекомендация от гитхаба*/
+  /*background-attachment: fixed; /*рекомендация от гитхаба*/
+}
+
+.decorated-zone {
+  position: relative;
 }
 
 .decorated-zone::after, 
@@ -16,10 +19,11 @@
 
 /*отступы для экрана менее 375 по макету меньше*/
 .decorated-zone::before {
+  /*inset применить сложно, расписала отдельно */
   align-self: flex-start;
   justify-self: end;
-  top: calc(var(--gap));
-  right: calc(var(--gap));
+  /*top: calc(var(--gap) * 2);
+  right: calc(var(--gap) * 2);*/
   border-top: 1px solid var(--decor_col);
   border-right: 1px solid var(--decor_col);
 }
@@ -27,24 +31,26 @@
 .decorated-zone::after {
   justify-self: start;
   align-self: flex-end;
-  left: calc(var(--gap));
-  bottom: calc(var(--gap));
+  /*left: calc(var(--gap) * 2);
+  bottom: calc(var(--gap) * 2);*/
   border-bottom: 1px solid var(--decor_col);
   border-left: 1px solid var(--decor_col);
-} 
+}
 
 .header {
   height: 100vh;
+  background-size: cover;
   padding: var(--gap);
   background-image: var(--bg_img);
-  background-size: cover;
-  background-position: bottom; /*по макеты картинка видна снизу*/
-  background-attachment: fixed;
+  position: relative;
   display: grid;
   grid-template-rows: 1fr min-content 1fr;
   grid-template-columns: 1fr 1fr;
   grid-auto-flow: column;
   align-items: center;
+  justify-items: end;
+  background-position: bottom; /*по макеты картинка видна снизу*/
+  background-attachment: fixed;
 }
 
 /*надпись стоит оформить отдельно. Отступы в зависимости от размера меняются*/
@@ -73,11 +79,13 @@
   left: 45px;
 }
 
+/*выравниваем по центру*/
 .header__theme-menu {
-  grid-column: 1 / 3;
   justify-self: end;
+  grid-column: 1 / 3;
 }
 
+/*элементы в 1 линию*/
 .header__theme-menu-list {
   display: grid;
   gap: var(--gap);
@@ -85,10 +93,10 @@
 
 /*Оформляем кнопки*/
 .header__theme-menu-button {
-  padding: 4px 13px;
   color: var(--decor_col);
   font-size: var(--fs-base);
   line-height: var(--line);
+  padding: 5px 15px;
   background-color: inherit;
   border: none;
   text-transform: lowercase;
@@ -97,7 +105,7 @@
 /*Активная ссылка*/
 .header__theme-menu-button_active {
   border: 1px solid var(--decor_col);
-}
+}  
 
 /*При наведении (не активная)*/
 .header__theme-menu-button:hover:not(.header__theme-menu-button_active) {
@@ -111,22 +119,30 @@
   border: none;
 }
 
+.header__theme-menu-button:focus-visible {
+  text-decoration: underline;
+  text-underline-position: under;
+  border: none;
+}
+
 .title, .footer_title {
   color: var(--head_col);
   font-size: var(--mobile-fs);
 }
 
+/*no focus*/
 .title {
+  line-height: var(--small-line);
   grid-column: 1 / 3;
   justify-self: start;
-  text-shadow: 4px 4px 0 #ff0070;
-  line-height: var(--small_line);
+  text-shadow: 4px 4px 0 var(--common_col);
 }
 
+/*большой текст в шапке*/
 .hdr_txt {
-  grid-column: 1 / 3;
-  justify-content: end;
   display: inline-block;
+  justify-content: end;
+  grid-column: 1 / 3;
 }
 
 /*Этот элемент используется для многих текстов */
@@ -146,15 +162,14 @@
 }
 
 .main {
-  margin-block: calc(var(--gap) * 4);
-  padding-inline: var(--gap);
-  grid-auto-flow: column;
   row-gap: calc(var(--gap) * 5);
+  padding: calc(var(--gap) * 2);
+  grid-auto-flow: column;
 }
 
 .content {
+  gap: calc(var(--gap) * 2.5);
   grid-column: 1 / 4;
-  gap: calc(var(--gap) * 2);
 }
 
 .card {
@@ -169,7 +184,6 @@
   line-height: var(--large-line);
   grid-column: 1 / 4;
   font-size: var(--fs-base);
-  color: var(--text);
 }
 
 .content_title {
@@ -177,6 +191,11 @@
   font-weight: var(--bold);
 }
 
+.text {
+  color: var(--text);
+}
+
+/*Ссылки в тексте*/
 .link {
   text-decoration: none;
   text-shadow: 2px 2px 0 var(--common_col);
@@ -195,7 +214,12 @@
   outline-offset: -1px;
 }
 
-/*Создаём 'воронку', как в уроках*/
+/*Названия советов - обычный текст*/
+.normal {
+  font-weight: var(--normal);
+}
+
+/*Создаём "воронку, как в уроках*/
 .pictures_conteiner {
   grid-column: 1 / 4;
   grid-auto-flow: column;
@@ -208,10 +232,6 @@
   height: 100%;
 }
 
-/*Названия советов - обычный текст*/
-.normal {
-  font-weight: var(--normal);
-}
 /*подвал*/
 .footer {
   padding: var(--gap);
@@ -225,8 +245,7 @@
   align-self: center;
   color: var(--head_col);
   text-shadow: 2px 2px 0 var(--common_col);
-  font-size: var(--mobile-fs);
-  line-height: var(--line);
+  line-height: var(--title-line-height);
 }
 
 @media (width >= 768px) {
@@ -236,13 +255,25 @@
 
   .title {
     position: relative;
-    margin-inline-start: -20px;
     font-size: var(--desk-fs);
+    text-shadow: 4px 4px 0 rgb(255,0,112);
   }
 
   .hdr_txt {
     grid-column: 2 / 3;
   }
+
+.decorated-zone::before {
+  /*inset применить сложно, расписала отдельно */
+  top: calc(var(--gap) * 2);
+  right: calc(var(--gap) * 2);
+}
+
+.decorated-zone::after {
+  left: calc(var(--gap) * 2);
+  bottom: calc(var(--gap) * 2);
+
+}
 
   .main {
     margin-block: calc(var(--gap) * 6);
@@ -252,13 +283,11 @@
 
   .content {
     grid-template-columns: 1fr 2fr;
-    margin-bottom: var(--gap);
   }
 
   .content_title {
     grid-column: 1 / 2;
     grid-row: 1 / 3;
-    color: var(--decor_col)
   }
 
   .card {
@@ -273,8 +302,10 @@
     grid-column: 2 / 3;
   }
 
-  .pictures_conteiner {
-    gap: calc(var(--gap) * 2);
+  .header__theme-menu-list {
+    display: grid;
+    grid-auto-flow: column;
+    gap: var(--gap);
   }
 
   .img {
@@ -309,51 +340,31 @@
   .footer {
     padding: calc(var(--gap) * 2);
   }
+
+  .rec {
+    color: var(--rec);
+  }
+  
+  /*Создаём точечку*/
+  .rec::after {
+    border-radius: var(--radius);
+    background-color: var(--rec_bg);
+    box-shadow: var(--shadow);
+  }
 }
 
 @media (width >= 1024px) {
   .title, .footer_title {
     font-size: var(--desk-fs);
   }
-  
-  .link:hover {
-    border-bottom: 1px solid var(--text-color);
-  }
 
-  .link:focus {
-    outline: none;
-  }
-
-  .link:focus-visible {
-    outline: 1px solid var(--text-color);
-    outline-offset: -1px;
+  .content, .content:nth-child(2) {
+    grid-template-columns: repeat(3, 1fr);
   }
 
   .header__theme-menu {
     align-self: start;
     justify-self: center;
-  }
-
-  .header__theme-menu-list {
-    grid-auto-flow: column;
-  }
-
-  .header__theme-menu-button:hover:not(.header__theme-menu-button_active) {
-    border: 1px solid var(--accent-color-opacity);
-  }
-
-  .header__theme-menu-button:focus {
-    outline: none;
-  }
-
-  .header__theme-menu-button:focus-visible {
-    border: none;
-    outline: none;
-    border-bottom: 1px solid var(--decoration-color);
-  }
-
-  .content, .content:nth-child(2) {
-    grid-template-columns: repeat(3, 1fr);
   }
 
   .card {
@@ -362,7 +373,6 @@
 
   .content:nth-child(2) {
     grid-template-rows: repeat(2, auto);
-
   }
 
   .content:nth-child(2) .content_title {
@@ -377,71 +387,90 @@
   .content > .title_decor {
     grid-column: 2 / 4;
   }
-  .text {
-   line-height: var(--large-line);
-  }
   
-  .decorated-zone::before {
-    top: calc(var(--gap) * 2);
-    right: calc(var(--gap) * 2);
-  }
-  
-  .decorated-zone::after {
-    bottom: calc(var(--gap) * 2);
-    left: calc(var(--gap) * 2);
+  .pictures_conteiner {
+    gap: calc(var(--gap) * 2);
   }
 
-  .content_title {
-    color: var(--decor_col);
+  .rec {
+    color: var(--rec);
+  }
+  
+  /*Создаём точечку*/
+  .rec::after {
+    border-radius: var(--radius);
+    background-color: var(--rec_bg);
+    box-shadow: var(--shadow);
   }
 }
 
-@media (prefers-color-scheme: light) {
-  .rec {
-    display: none;
-  }
-} 
-
 @media (width < 768px) {
-  .title {
+  .header {
     text-shadow: 4px 4px 0 var(--common_col); /* изменяем цвет при уменьшении экрана */
   }
 
-  .gap_mob {
-    margin-bottom: var(--gap);
+  .rec {
+    color: var(--rec);
+  }
+  
+  /*Создаём точечку*/
+  .rec::after {
+    border-radius: var(--radius);
+    background-color: var(--rec_bg);
+    box-shadow: var(--shadow);
   }
 
-  .mob_txt {
-    margin-bottom: var(--gap);
+  .header__theme-menu-button_type_light {
+    margin-top: calc(var(--gap * 100));
   }
 
-  .card_decor {
-    margin-top: calc(var(--gap) * 2);
+  .decorated-zone::before {
+    /*inset применить сложно, расписала отдельно */
+    top: var(--gap);
+    right: var(--gap);
   }
-
-  .content_title {
-    color: var(--decor_col);
-  }
-
-  .text {
-    line-height: var(--large_line);
-  }
-
-  .mult {
-    margin-top: 5px;
+  
+  .decorated-zone::after {
+    left: var(--gap);
+    bottom: var(--gap);
+  
   }
 }
 
-@media (width <= 375) {
-  .gap_mob {
-    margin-top: calc(var(--gap) * 2);
+@media (width <= 375px) {
+  .title {
+    font-size: var(--desk-fs);
+  }
+  .rec {
+    top: var(--gap);
+    right:calc(var(--gap) * 4);
+  }
+  .decorated-zone::after {
+    left: var(--gap);
+    bottom: var(--gap);
+  }
+  .decorated-zone::before {
+    top: var(--gap);
+    right: var(--gap);
+  }
+}
+
+@media (375px < width < 768px) {
+  .hdr_txt, .title_decor {
+    justify-content: end;
+    display: inline-block;
+    min-width: 355px;
+    grid-column: 2/3;
   }
 
-  .mob_txt {
-    margin-bottom: var(--gap);
+  .rec {
+    color: var(--rec);
   }
-
-  .content_title {
-    color: var(--decor_col);
+  
+  /*Создаём точечку*/
+  .rec::after {
+    border-radius: var(--radius);
+    background-color: var(--rec_bg);
+    box-shadow: var(--shadow);
   }
 }
