@@ -18,8 +18,8 @@
 .decorated-zone::before {
   align-self: flex-start;
   justify-self: end;
-  top: calc(var(--gap) * 2);
-  right: calc(var(--gap) * 2);
+  top: calc(var(--gap));
+  right: calc(var(--gap));
   border-top: 1px solid var(--decor_col);
   border-right: 1px solid var(--decor_col);
 }
@@ -27,11 +27,11 @@
 .decorated-zone::after {
   justify-self: start;
   align-self: flex-end;
-  left: calc(var(--gap) * 2);
-  bottom: calc(var(--gap) * 2);
+  left: calc(var(--gap));
+  bottom: calc(var(--gap));
   border-bottom: 1px solid var(--decor_col);
   border-left: 1px solid var(--decor_col);
-}
+} 
 
 .header {
   height: 100vh;
@@ -383,6 +383,21 @@
   .content > .title_decor {
     grid-column: 2 / 4;
   }
+
+  
+  .decorated-zone::before {
+    top: calc(var(--gap) * 2);
+    right: calc(var(--gap) * 2);
+  }
+  
+  .decorated-zone::after {
+    bottom: calc(var(--gap) * 2);
+    left: calc(var(--gap) * 2);
+  }
+
+  .content_title {
+    color: var(--decor_col);
+  }
 }
 
 @media (prefers-color-scheme: light) {
@@ -399,25 +414,19 @@
   .gap_mob {
     margin-bottom: var(--gap);
   }
-  
-}
-
-@media (width < 768px) {
-  .title {
-    text-shadow: 4px 4px 0 var(--common_col); /* изменяем цвет при уменьшении экрана */
-  }
-
-  .gap_mob {
-    margin-bottom: var(--gap);
-  }
 
   .mob_txt {
     margin-bottom: var(--gap);
   }
 
   .card_decor {
-    margin-top: var(--gap);
+    margin-top: 10px;
   }
+
+  .content_title {
+    color: var(--decor_col);
+  }
+
 }
 
 @media (width <= 375) {
@@ -430,5 +439,9 @@
 
   .mob_txt {
     margin-bottom: var(--gap);
+  }
+
+  .content_title {
+    color: var(--decor_col);
   }
 }
