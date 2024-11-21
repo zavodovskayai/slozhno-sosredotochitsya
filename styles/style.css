@@ -85,7 +85,7 @@
 
 /*Оформляем кнопки*/
 .header__theme-menu-button {
-  padding: 5px 15px;
+  padding: 4px 13px;
   color: var(--decor_col);
   font-size: var(--fs-base);
   line-height: var(--line);
@@ -119,7 +119,7 @@
 .title {
   grid-column: 1 / 3;
   justify-self: start;
-  text-shadow: 4px 4px 0 var(--common_col);
+  text-shadow: 4px 4px 0 #ff0070;
   line-height: var(--small_line);
 }
 
@@ -169,6 +169,7 @@
   line-height: var(--large-line);
   grid-column: 1 / 4;
   font-size: var(--fs-base);
+  color: var(--text)
 }
 
 .content_title {
@@ -214,6 +215,10 @@
 /*Названия советов - обычный текст*/
 .normal {
   font-weight: var(--normal);
+}
+
+.gap {
+  margin-top: var(--gap);
 }
 
 /*подвал*/
@@ -389,7 +394,7 @@
 } 
 
 @media (width < 768px) {
-  .header {
+  .title {
     text-shadow: 4px 4px 0 var(--common_col); /* изменяем цвет при уменьшении экрана */
   }
 }
