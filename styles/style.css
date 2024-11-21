@@ -420,7 +420,7 @@
   }
 
   .card_decor {
-    margin-top: 10px;
+    margin-top: calc(var(--gap) * 2);
   }
 
   .content_title {
