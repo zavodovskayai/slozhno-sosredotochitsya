@@ -213,11 +213,6 @@
 .normal {
   font-weight: var(--normal);
 }
-
-.gap {
-  margin-top: var(--gap);
-}
-
 /*подвал*/
 .footer {
   padding: var(--gap);
