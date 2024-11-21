@@ -416,4 +416,7 @@
   .gap_mob {
     margin-top: var(--gap);
   }
+  .text {
+    line-height: var(--line);
+  }
 }
