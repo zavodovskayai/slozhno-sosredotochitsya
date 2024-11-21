@@ -419,4 +419,8 @@
   .text {
     line-height: var(--line);
   }
+
+  .mob_txt {
+    margin-bottom: var(--gap);
+  }
 }
