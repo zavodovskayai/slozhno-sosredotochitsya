@@ -395,4 +395,9 @@
   .title {
     text-shadow: 4px 4px 0 var(--common_col); /* изменяем цвет при уменьшении экрана */
   }
+
+  .gap_mob {
+    margin-bottom: var(--gap);
+  }
+  
 }
