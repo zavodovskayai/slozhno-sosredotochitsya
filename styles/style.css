@@ -427,14 +427,14 @@
     color: var(--decor_col);
   }
 
+  .text {
+    line-height: 150%;
+  }
 }
 
 @media (width <= 375) {
   .gap_mob {
     margin-top: calc(var(--gap) * 2);
-  }
-  .text {
-    line-height: var(--large_line);
   }
 
   .mob_txt {
