@@ -414,7 +414,7 @@
 
 @media (width <= 375) {
   .gap_mob {
-    margin-top: var(--gap);
+    margin-top: calc(var(--gap) * 2);
   }
   .text {
     line-height: var(--line);
