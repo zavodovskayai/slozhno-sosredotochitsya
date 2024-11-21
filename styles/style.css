@@ -254,7 +254,7 @@
     grid-template-columns: 1fr 2fr;
     margin-bottom: var(--gap);
   }
-  
+
   .content_title {
     grid-column: 1 / 2;
     grid-row: 1 / 3;
@@ -377,7 +377,9 @@
   .content > .title_decor {
     grid-column: 2 / 4;
   }
-
+  .text {
+   line-height: var(--large-line);
+  }
   
   .decorated-zone::before {
     top: calc(var(--gap) * 2);
