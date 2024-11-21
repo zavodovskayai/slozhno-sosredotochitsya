@@ -252,8 +252,9 @@
 
   .content {
     grid-template-columns: 1fr 2fr;
+    margin-bottom: var(--gap);
   }
-
+  
   .content_title {
     grid-column: 1 / 2;
     grid-row: 1 / 3;
