@@ -428,7 +428,7 @@
   }
 
   .text {
-    line-height: 150%;
+    line-height: var(--large_line);
   }
 }
 
