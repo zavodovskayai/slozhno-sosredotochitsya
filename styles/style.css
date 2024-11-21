@@ -155,7 +155,6 @@
 .content {
   grid-column: 1 / 4;
   gap: calc(var(--gap) * 2);
-  margin-bottom: var(--gap);
 }
 
 .card {
@@ -167,6 +166,7 @@
 }
 
 .content_title, .text {
+  line-height: var(--large-line);
   grid-column: 1 / 4;
   font-size: var(--fs-base);
   color: var(--text);
@@ -175,7 +175,6 @@
 .content_title {
   color: var(--text_head);
   font-weight: var(--bold);
-  line-height: var(--line);
 }
 
 .link {
@@ -273,7 +272,6 @@
     grid-column: 2 / 3;
   }
 
-  
   .pictures_conteiner {
     gap: calc(var(--gap) * 2);
   }
