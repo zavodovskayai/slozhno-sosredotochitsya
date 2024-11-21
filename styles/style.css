@@ -414,6 +414,10 @@
   .mob_txt {
     margin-bottom: var(--gap);
   }
+
+  .card_decor {
+    margin-top: var(--gap);
+  }
 }
 
 @media (width <= 375) {
