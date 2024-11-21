@@ -167,7 +167,6 @@
 }
 
 .content_title, .text {
-  line-height: var(--large-line);
   grid-column: 1 / 4;
   font-size: var(--fs-base);
   color: var(--text);
@@ -176,6 +175,7 @@
 .content_title {
   color: var(--text_head);
   font-weight: var(--bold);
+  line-height: var(--line);
 }
 
 .link {
@@ -424,10 +424,6 @@
 
   .text {
     line-height: var(--large_line);
-  }
-
-  .att {
-    margin-top: -10px;
   }
 }
 
