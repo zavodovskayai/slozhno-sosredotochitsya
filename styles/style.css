@@ -170,11 +170,6 @@
   grid-column: 1 / 4;
   font-size: var(--fs-base);
   color: var(--text);
-
-}
-
-.text { 
-  margin-top: var(--gap);
 }
 
 .content_title {
