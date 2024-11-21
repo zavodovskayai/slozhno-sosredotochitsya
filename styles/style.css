@@ -426,6 +426,10 @@
   .text {
     line-height: var(--large_line);
   }
+
+  .mult {
+    margin-top: var(--gap);
+  }
 }
 
 @media (width <= 375) {
