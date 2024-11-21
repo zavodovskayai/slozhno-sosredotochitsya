@@ -410,6 +410,10 @@
   .gap_mob {
     margin-bottom: var(--gap);
   }
+
+  .mob_txt {
+    margin-bottom: var(--gap);
+  }
 }
 
 @media (width <= 375) {
@@ -417,7 +421,7 @@
     margin-top: calc(var(--gap) * 2);
   }
   .text {
-    line-height: var(--line);
+    line-height: var(--large_line);
   }
 
   .mob_txt {
