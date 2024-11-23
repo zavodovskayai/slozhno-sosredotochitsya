@@ -10,6 +10,8 @@
   --text_head: var(--decor_col);
   --common_col: #ff8dcb;
   --text: rgb(53,52,48);
+  --visibility: hidden;
+  --big-title-shadow: #ff0070;
 }
 
 @media (prefers-color-scheme: light) {
@@ -25,5 +27,7 @@
     --text_head: var(--decor_col);
     --common_col: #ff8dcb;
     --text: rgb(53,52,48);
+    --visibility: hidden;
+    --big-title-shadow: #ff0070;
     }
 }
