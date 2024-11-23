@@ -29,10 +29,10 @@
 <!--Добавляем в изначальный шаблон фрагменты-->
   <body class="page">
     <header class="header decorated-zone">
-      <!--Добавляем надпись rec. Она видна в неоне и отсутствует в светлой-->
-      <div class="rec">
-        REC
-      </div>
+      <!--Удалила rec, переместила в CSS в контент.
+      Я пользуюсь Оперой и в ней отображение было на любой теме
+      В следующий раз буду проверять несколько браузеров!-->
+      <div class="rec" aria-hidden="true"></div>
       <!--Навигация была изначально задана. Некоторые классы удалены-->
       <nav class="header__theme-menu">
         <ul class="header__theme-menu-list">
@@ -55,7 +55,8 @@
       </nav>
       <!--Добавляем надпись и текст в шапке-->
       <h1 class="title">no focus</h1>
-      <p class="hdr_txt title_decor">Что делать, когда не можешь делать ничего<br> 
+      <!--Изменила название-->
+      <p class="header_text title_decor">Что делать, когда не можешь делать ничего<br> 
         Или почему нам так сложно сконцентрироваться, особенно когда очень надо</p>
     </header>
 
@@ -71,7 +72,8 @@
           <p class="text">Особенно сложно сосредоточиться, когда задач много и все они — важные. 
             Где же легендарная многозадачность, когда она так нужна вам (и всем нанимающим менеджерам 
             этого мира)? А дело в том, что её просто не существует. Исследователи
-            <a class="link" href="#0">выяснили</a>, что мозгу тяжело концентрироваться даже на двух 
+            <a class="link" href="https://dana.org/article/multicosts-of-multitasking/"
+              target="_blank">выяснили</a>, что мозгу тяжело концентрироваться даже на двух 
               делах одновременно. А когда в поле внимания попадает несколько важных задач, организм паникует 
               и выделяет кортизол и адреналин — «гормоны стресса». Из-за этого мы работаем невнимательно: 
               ошибаемся и быстро устаём.</p>
@@ -90,9 +92,10 @@
       <section class="content">
         <!--Название контента-->
         <h2 class="content_title">Что снижает концентрацию внимания?</h2>
+        <!--Здесь 3 блока-->
         <article class="card">
-          <!--Здесь 3 блока-->
-          <h3 class="title_decor mult">Многозадачность</h3>
+          <!--Изначально mult был для отступов, теперь исправила так, чтобы без него работало-->
+          <h3 class="title_decor">Многозадачность</h3>
           <p class="text">Как концентрация может снижаться из-за… концентрации? Любая стрессовая 
             ситуация (и резко меняющийся мир в целом) заставляет наш мозг постоянно «сканировать» 
             окружающую среду на предмет опасности. Например, читать новости вместо работы. Но быть 
@@ -143,7 +146,8 @@
         <article class="card">
           <h4 class="title_decor normal">Прогуляйтесь</h4>
           <p class="text">Или даже пробегитесь. Лучше найти парк или лес: один эксперимент
-            <a class="link" href="#0">показал</a>, что созерцание природы повышает концентрацию, 
+            <a class="link" href="https://www.sciencedirect.com/science/article/abs/pii/S0272494415000328"
+            target="_blank">показал</a>, что созерцание природы повышает концентрацию, 
             в то время как после просмотра городских пейзажей она наоборот понижается. Можно совместить 
             прогулку с физическими упражнениями или бегом — так в мозг поступит ещё больше кислорода и 
             он будет лучше работать. Но и простая двадцатиминутная прогулка — тоже отличный вариант.</p>
@@ -165,12 +169,38 @@
       <section class="pictures_conteiner">
         <!--Название контента-->
         <h2 class="title_decor">А можно в картинках?</h2>
-        <!--Картинки, принцип оформления описан в 3 спринт тема 7 урок 4 задание 2-->
-        <img class="img" src="./images/sunset.png" alt="Sunset img (закат)">
-        <img class="img" src="./images/ice-cream.png" alt="Ice cream img (мороженка)">
-        <img class="img" src="./images/tape.png" alt="Tape img (касета)">
-        <img class="img" src="./images/books.png" alt="Books img (книжки)">
-        <img class="img" src="./images/street.png" alt="Street img (улица)">
+          <!--Картинки, принцип оформления описан в 3 спринт тема 7 урок 4 задание 2-->
+          <ul class="gallery-list"> 
+            <li class="gallery-list__item"> 
+              <picture>
+                <img class="img" src="./images/sunset.png" alt="(Малиновый) фиолетовый закат">
+              </picture>
+            </li>
+
+            <li class="gallery-list__item">
+              <picture>
+                <img class="img" src="./images/ice-cream.png" alt="Мороженка">
+              </picture>
+            </li>
+
+            <li class="gallery-list__item">
+              <picture>
+                <img class="img" src="./images/tape.png" alt="Касета с укращениями">
+              </picture>
+            </li>
+
+            <li class="gallery-list__item">
+              <picture>
+                <img class="img" src="./images/books.png" alt="Книжки">
+              </picture>
+            </li>
+
+            <li class="gallery-list__item">
+              <picture>
+                <img class="img" src="./images/street.png" alt="Фиолетовая японская улица">
+              </picture>
+            </li>
+          </ul>
       </section>
     </main>
 
@@ -183,3 +213,4 @@
     <script src="./scripts/script.js"></script>
   </body>
 </html>
+
