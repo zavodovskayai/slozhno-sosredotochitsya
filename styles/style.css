@@ -1,9 +1,16 @@
 
-/* Основные стили проекта*/
+/* Основные стили проекта
+
+Надеюсь, я правильно поняла, что изображение идёт
+Для всех страницы (то есть не как на макете только
+у заголовка)*/
 .page {
   font-family: var(--font);
   background-color: var(--bg_col);
   background-attachment: fixed; /*рекомендация от гитхаба*/
+  background-image: var(--bg_img);
+  background-size: cover;
+  background-position: bottom; /*по макеты картинка видна снизу*/
 }
 
 .decorated-zone {
@@ -16,9 +23,9 @@
   content: "";
   width: 25px;
   height: 25px;
+  z-index: -1;
 }
 
-/*отступы для экрана менее 375 по макету меньше*/
 .decorated-zone::before {
   align-self: flex-start;
   justify-self: end;
@@ -40,10 +47,6 @@
 .header {
   height: 100vh;
   padding: var(--gap);
-  background-image: var(--bg_img);
-  background-size: cover;
-  background-position: bottom; /*по макеты картинка видна снизу*/
-  background-attachment: fixed;
   display: grid;
   grid-template-rows: 1fr min-content 1fr;
   grid-template-columns: 1fr 1fr;
@@ -53,15 +56,28 @@
 
 /*надпись стоит оформить отдельно. Отступы в зависимости от размера меняются*/
 .rec {
+  display: inline-flex;
+  align-items: center;
+  position: absolute;
+  gap: var(--gap);
+  inset-inline-end: calc(var(--gap) * 2);
+  inset-block-start: var(--gap);
+  /*https://developer.mozilla.org/ru/docs/Web/CSS/visibility
+  Тут прочитала как можно его спрятать.
+  Очень рада, что всё сработало! Ещё раз спасибо!*/
+  visibility: visible;
+  top: 20px; 
+  right: 28px;
+}
+
+.rec::before {
+  content: 'REC';
+  color: var(--rec);
+  line-height: 25px;
+  text-transform: uppercase;
   color: var(--rec);
   font-family: var(--font);
   font-size: var(--fs-base);
-  text-align: center;
-  text-transform: uppercase;
-  line-height: 25px;
-  position: absolute;
-  top: calc(var(--gap) * 2);
-  right: calc(var(--gap) * 5);
 }
 
 /*Создаём точечку*/
@@ -70,11 +86,8 @@
   background-color: var(--rec_bg);
   box-shadow: var(--shadow);
   content: '';
-  position: absolute;
   inline-size: var(--gap);
   block-size: var(--gap);
-  top: 8px;
-  left: 45px;
 }
 
 .header__theme-menu {
@@ -120,14 +133,20 @@
   font-size: var(--mobile-fs);
 }
 
+/*Поместила цвет в переменную, однако, если смотреть по пипетке и по макету, то 
+на большом экране цвета однаковые, а на маленьких отличаются
+https://disk.yandex.ru/i/cxSwN3kgANtSVQ
+https://disk.yandex.ru/i/upmiNBUouFcJsA 
+(не сочтите за грубость, пожалуйста, просто хотела объяснить почему тут я поставила такой
+цвет👉👈. Спасибо за замечание!)*/
 .title {
   grid-column: 1 / 3;
   justify-self: start;
-  text-shadow: 4px 4px 0 #ff0070;
+  text-shadow: 4px 4px 0 var(--common_col); /* изменяем цвет при уменьшении экрана */
   line-height: var(--small_line);
 }
 
-.hdr_txt {
+.header_text {
   grid-column: 1 / 3;
   justify-content: end;
   display: inline-block;
@@ -139,8 +158,8 @@
   background-color: var(--common_col);
   font-size: var(--fs-base);
   font-weight: var(--bold);
-  line-height: var(--large-line);
   grid-column: 1 / 4;
+  max-width: 1183px;
 }
 
 /*Основная часть состоит из контента*/
@@ -150,10 +169,9 @@
 }
 
 .main {
-  margin-block: calc(var(--gap) * 4);
-  padding-inline: var(--gap);
+  padding: var(--gap) calc(var(--gap) * 4);
   grid-auto-flow: column;
-  row-gap: calc(var(--gap) * 5);
+  gap: calc(var(--gap) * 5);
 }
 
 .content {
@@ -195,21 +213,30 @@
 }
 
 .link:focus-visible {
-  outline: 1px solid var(--text);
+  outline: 1px solid currentColor;
   outline-offset: -1px;
 }
 
 /*Создаём 'воронку', как в уроках*/
+
 .pictures_conteiner {
   grid-column: 1 / 4;
-  grid-auto-flow: column;
   gap: var(--gap);
 }
 
+
+.gallery-list {
+  display: grid;
+  gap: var(--gap);
+  width: 1183px;
+  height: 1090px;
+}
+
 .img {
-  grid-column: 1 / 4;
-  width: 100%;
-  height: 100%;
+  width: 100%; 
+  height: 100%; 
+  object-fit: cover;
+
 }
 
 /*Названия советов - обычный текст*/
@@ -242,9 +269,10 @@
     position: relative;
     margin-inline-start: -20px;
     font-size: var(--desk-fs);
+    text-shadow: 4px 4px 0 var(--big-title-shadow);
   }
 
-  .hdr_txt {
+  .header_txt {
     grid-column: 2 / 3;
   }
 
@@ -269,9 +297,7 @@
     grid-column: 2 / 3;
   }
 
-  .content:nth-child(2) .card {
-    grid-column: 1 / 4;
-  }
+
 
   .content > .title_decor {
     grid-column: 2 / 3;
@@ -281,33 +307,21 @@
     gap: calc(var(--gap) * 2);
   }
 
-  .img {
-    object-fit: cover;
-    object-position: center;
+/*Здесь я долго мучалась, но как отобразить картинки
+без ображения к ним так и не поняла(*/
+  .gallery-list {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
   }
 
-  .img:nth-child(2) {
-    grid-column: 1 / 3;
+  .gallery-list__item:first-child,
+  .gallery-list__item:last-child {
+    grid-column-start: span 2;
   }
 
-  .img:nth-child(3) {
-    grid-column: 3 / 4;
-    grid-row: 2 / 4;
-  }
-
-  .img:nth-child(4) {
-    grid-column: 1 / 2;
-    grid-row: 3 / 5;
-  }
-
-  .img:nth-child(5) {
-    grid-column: 2 / 3;
-    grid-row: 3 / 4;
-  }
-
-  .img:nth-child(6) {
-    grid-column: 2 / 4;
-    grid-row: 4 / 5;
+  .gallery-list__item:nth-child(2),
+  .gallery-list__item:nth-child(3) {
+    grid-row-start: span 2;
   }
 
   .footer {
@@ -319,19 +333,6 @@
   .title, .footer_title {
     font-size: var(--desk-fs);
   }
-  
-  .link:hover {
-    border-bottom: 1px solid var(--text-color);
-  }
-
-  .link:focus {
-    outline: none;
-  }
-
-  .link:focus-visible {
-    outline: 1px solid var(--text-color);
-    outline-offset: -1px;
-  }
 
   .header__theme-menu {
     align-self: start;
@@ -342,21 +343,7 @@
     grid-auto-flow: column;
   }
 
-  .header__theme-menu-button:hover:not(.header__theme-menu-button_active) {
-    border: 1px solid var(--accent-color-opacity);
-  }
-
-  .header__theme-menu-button:focus {
-    outline: none;
-  }
-
-  .header__theme-menu-button:focus-visible {
-    border: none;
-    outline: none;
-    border-bottom: 1px solid var(--decoration-color);
-  }
-
-  .content, .content:nth-child(2) {
+  .content {
     grid-template-columns: repeat(3, 1fr);
   }
 
@@ -364,12 +351,7 @@
     grid-column: 2 / 4;
   }
 
-  .content:nth-child(2) {
-    grid-template-rows: repeat(2, auto);
-
-  }
-
-  .content:nth-child(2) .content_title {
+  .content_title {
     grid-row: span 1;
   }
 
@@ -400,29 +382,7 @@
   }
 }
 
-@media (prefers-color-scheme: light) {
-  .rec {
-    display: none;
-  }
-} 
-
 @media (width < 768px) {
-  .title {
-    text-shadow: 4px 4px 0 var(--common_col); /* изменяем цвет при уменьшении экрана */
-  }
-
-  .gap_mob {
-    margin-bottom: var(--gap);
-  }
-
-  .mob_txt {
-    margin-bottom: var(--gap);
-  }
-
-  .card_decor {
-    margin-top: calc(var(--gap) * 2);
-  }
-
   .content_title {
     color: var(--decor_col);
   }
@@ -431,20 +391,12 @@
     line-height: var(--large_line);
   }
 
-  .mult {
-    margin-top: 5px;
+  .content {
+    column-gap: 30px;
   }
 }
 
 @media (width <= 375) {
-  .gap_mob {
-    margin-top: calc(var(--gap) * 2);
-  }
-
-  .mob_txt {
-    margin-bottom: var(--gap);
-  }
-
   .content_title {
     color: var(--decor_col);
   }
