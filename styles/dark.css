@@ -13,6 +13,8 @@
   --text_head: var(--bg_col);
   --common_col: var(--decor_col);
   --text: #f1b2ce;
+  --visibility: visible;
+  --big-title-shadow: #ff0070;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -30,5 +32,7 @@
     --text_head: var(--bg_col);
     --common_col: var(--decor_col);
     --text: #f1b2ce;
+    --visibility: visible;
+    --big-title-shadow: #ff0070;
     }
 }
