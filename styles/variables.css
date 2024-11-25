@@ -1,12 +1,13 @@
 :root {
-  --font: 'IBM Plex mono', monospace;
-  --fs-base: 18px;
-  --line: 100%;
-  --small_line: 85%;
-  --large_line: 130%;
-  --mobile-fs: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
-  --desk-fs: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
-  --bold: bold; /*700*/
-  --normal: normal; /*400*/
+  --font_family: "IBM Plex mono", monospace;
+  --background-image: url("../images/cover-image.png");
   --gap: 10px;
+  --font: 18px;
+  --lines_and_blocks: 25px;
+  --inset_inline: clamp(var(--gap), 0.0286rem + 2.5445vw, calc(var(--gap) * 2));
+  --bold: bold;
+  --normal: normal;
+  --header_footer_paddings: clamp(var(--gap), 0.0286rem + 2.5445vw, calc(var(--gap) * 2));
+  --page_title_font: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+  --persent: 100%;
 }
