@@ -323,7 +323,7 @@
   }
 }
 
-@media (width <= 768px) {
+@media (375 < width <= 768px) {
   .rec {
     top: calc(var(--gap) * 2 );
     right: calc(var(--gap) * 3 )
@@ -333,6 +333,5 @@
 @media (width <= 375px) {
   .rec {
     top: calc(var(--gap) * 2 );
-    right: calc(var(--gap) * 2 )
   }
 }
