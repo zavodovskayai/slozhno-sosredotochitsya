@@ -18,6 +18,7 @@
   padding: var(--header_footer_paddings);
   min-block-size: 100vh;
   min-height: 668px;
+  height: 100%;
 }
 
 /*Шапка*/
@@ -326,5 +327,12 @@
   .rec {
     top: calc(var(--gap) * 2 );
     right: calc(var(--gap) * 3 )
+  }
+}
+
+@media (width <= 375px) {
+  .rec {
+    top: calc(var(--gap) * 2 );
+    right: calc(var(--gap) * 2 )
   }
 }
