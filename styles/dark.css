@@ -3,11 +3,12 @@
   --text_color: #f1b2ce;
   --header_color: #db00ff;
   --border_color: var(--decor_color);
-  --hover_color: #ff007040;
+  --hover_color: rgb(255,0,112, 0.4);
   --letters: #000028;
   --background_color: var(--letters);
   --background_image: url("../images/cover-image-dark.png");
   --visibility: visible;
+  --big_screen_shadow: var(--decor_color);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -16,10 +17,11 @@
     --text_color: #f1b2ce;
     --header_color: #db00ff;
     --border_color: var(--decor_color);
-    --hover_color: #ff007040;
+    --hover_color: rgb(255,0,112, 0.4);
     --letters: #000028;
     --background_color: var(--letters);
     --background_image: url("../images/cover-image-dark.png");
     --visibility: visible;
+    --big_screen_shadow: var(--decor_color);
   }
 }
