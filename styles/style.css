@@ -17,6 +17,7 @@
   display: grid;
   padding: var(--header_footer_paddings);
   min-block-size: 100vh;
+  min-height: 100vh;
 }
 
 /*Шапка*/
@@ -128,7 +129,7 @@
   text-shadow: 2px 2px 0 var(--decor_color);
 }
 
-.header_footer_title {
+.focus_title {
   color: var(--header_color);
   font-weight: var(--bold);
   font-size: var(--page_title_font);
@@ -179,7 +180,7 @@
 }
 
 .link:hover {
-  text-decoration: underline;
+  border-bottom: 1px solid var(--text_color);
 }
 
 .link:focus {
@@ -238,7 +239,7 @@
     inset-block-start: calc(var(--gap) * 2);
   }
 
-  .header_footer_title {
+  .focus_title {
     font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
   }
 
@@ -297,8 +298,8 @@
 @media (width >= 1024px) {
   /*Переместила однаковые цвета сюда
   https://disk.yandex.ru/i/upmiNBUouFcJsA*/
-  .header_footer_title {
-    text-shadow: 4px 4px 0 #ff0070;
+  .focus_title {
+    text-shadow: 4px 4px 0 var(--big_screen_shadow);
   }
 
   .card {
@@ -318,5 +319,11 @@
 
   .header__theme-menu-list {
     flex-direction: row;
+  }
+}
+
+@media (width <= 768px) {
+  .rec {
+    padding-top: var(--gap);
   }
 }
