@@ -1,413 +1,322 @@
-
-/* Основные стили проекта
-
-Надеюсь, я правильно поняла, что изображение идёт
-Для всех страницы (то есть не как на макете только
-у заголовка)*/
+/*Основные стили проекта*/
 .page {
-  font-family: var(--font);
-  background-color: var(--bg_col);
-  background-attachment: fixed; /*рекомендация от гитхаба*/
-  background-image: var(--bg_img);
+  color: var(--text_color);
+  font-family: var(--font_family);
+  font-size: var(--font);
+  line-height: calc(var(--lines_and_blocks) - 1.6px);
+  background-color: var(--background_color);
+  background-image: var(--background_image);
+  background-position: center;
   background-size: cover;
-  background-position: bottom; /*по макеты картинка видна снизу*/
+  background-attachment: fixed;
+}
+
+/*Шапка и подвал оформлены схожим образом*/
+.header, 
+.footer {
+  display: grid;
+  padding: var(--header_footer_paddings);
+  min-block-size: 100vh;
+}
+
+/*Шапка*/
+.header {
+  align-items: start;
 }
 
 .decorated-zone {
   position: relative;
 }
 
-.decorated-zone::after, 
-.decorated-zone::before {
-  position: absolute;
+/*Обрамляем в "рамку"*/
+.decorated-zone::before,
+.decorated-zone::after {
   content: "";
-  width: 25px;
-  height: 25px;
+  position: absolute;
   z-index: -1;
+  inline-size: var(--lines_and_blocks);
+  block-size: var(--lines_and_blocks);
 }
 
 .decorated-zone::before {
-  align-self: flex-start;
-  justify-self: end;
-  top: calc(var(--gap));
-  right: calc(var(--gap));
-  border-top: 1px solid var(--decor_col);
-  border-right: 1px solid var(--decor_col);
+  border-inline-end: 1px solid var(--border_color);
+  border-block-start: 1px solid var(--border_color);
+  inset-inline-end: var(--inset_inline);
+  inset-block-start: var(--inset_inline);
 }
 
 .decorated-zone::after {
-  justify-self: start;
-  align-self: flex-end;
-  left: calc(var(--gap));
-  bottom: calc(var(--gap));
-  border-bottom: 1px solid var(--decor_col);
-  border-left: 1px solid var(--decor_col);
-} 
-
-.header {
-  height: 100vh;
-  padding: var(--gap);
-  display: grid;
-  grid-template-rows: 1fr min-content 1fr;
-  grid-template-columns: 1fr 1fr;
-  grid-auto-flow: column;
-  align-items: center;
+  border-inline-start: 1px solid var(--border_color);
+  border-block-end: 1px solid var(--border_color);
+  inset-inline-start: var(--inset_inline);
+  inset-block-end: var(--inset_inline);
 }
 
-/*надпись стоит оформить отдельно. Отступы в зависимости от размера меняются*/
 .rec {
+  position: absolute;
+  z-index: -1;
+  /*Указала значение по умолчанию, без него в Яндексе и Edge надпись не отображается*/
+  visibility: var(--visibility, visible);
   display: inline-flex;
   align-items: center;
-  position: absolute;
   gap: var(--gap);
   inset-inline-end: calc(var(--gap) * 2);
   inset-block-start: var(--gap);
-  /*https://developer.mozilla.org/ru/docs/Web/CSS/visibility
-  Тут прочитала как можно его спрятать.
-  Очень рада, что всё сработало! Ещё раз спасибо!*/
-  visibility: visible;
-  top: 20px; 
-  right: 28px;
 }
 
+/*Создание надписи для тёмной темы
+Примечание: в Опере GX, по видимому, отображение работает по-другому. При
+переключении тем фрагменты не пропадают в любом варианте*/
 .rec::before {
-  content: 'REC';
-  color: var(--rec);
-  line-height: 25px;
-  text-transform: uppercase;
-  color: var(--rec);
-  font-family: var(--font);
-  font-size: var(--fs-base);
+  content: "REC";
+  color: var(--decor_color);
+  line-height: calc(var(--lines_and_blocks) - 1px);
 }
 
-/*Создаём точечку*/
+/*Создаём точку*/
 .rec::after {
-  border-radius: var(--radius);
-  background-color: var(--rec_bg);
-  box-shadow: var(--shadow);
-  content: '';
-  inline-size: var(--gap);
-  block-size: var(--gap);
+  content: "";
+  display: inline-block;
+  border-radius: calc(var(--persent)/2);
+  box-shadow: 0 0 4px 3px var(--decor_color);
+  background: var(--decor_color);
+  inline-size: calc(var(--gap) * 0.9);
+  block-size: calc(var(--gap) * 0.9);
 }
 
+/*Оформляем кнопки переключения тем*/
 .header__theme-menu {
-  grid-column: 1 / 3;
   justify-self: end;
+  margin-block: calc(var(--gap) * 6 - 5px);
 }
 
 .header__theme-menu-list {
-  display: grid;
-  gap: var(--gap);
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--gap) + 2px);
 }
 
-/*Оформляем кнопки*/
 .header__theme-menu-button {
-  padding: 4px 13px;
-  color: var(--decor_col);
-  font-size: var(--fs-base);
-  line-height: var(--line);
-  background-color: inherit;
-  border: none;
+  border: 1px solid transparent;
+  padding: calc(var(--gap) * 0.4) calc(var(--gap) * 1.2);
+  color: var(--border_color);
+  line-height: var(--font);
   text-transform: lowercase;
+  background: transparent;
   cursor: pointer;
 }
 
-/*Активная ссылка*/
 .header__theme-menu-button_active {
-  border: 1px solid var(--decor_col);
+  border-color: currentColor;
+  cursor: default;
+  pointer-events: none;
 }
 
-/*При наведении (не активная)*/
-.header__theme-menu-button:hover:not(.header__theme-menu-button_active) {
-  border: 1px solid var(--decor_col_but);
+.header__theme-menu-button:hover {
+  border-color: var(--hover_color);
 }
 
-/*Правила при фокусе*/
 .header__theme-menu-button:focus {
-  outline: none;
-  text-underline-position: under;
-  border: none;
+  outline: 0;
 }
 
-.title, .footer_title {
-  color: var(--head_col);
-  font-size: var(--mobile-fs);
+.header__theme-menu-button:focus-visible {
+  border-block-end-color: currentColor;
 }
 
-/*Поместила цвет в переменную, однако, если смотреть по пипетке и по макету, то 
-на большом экране цвета однаковые, а на маленьких отличаются
-https://disk.yandex.ru/i/cxSwN3kgANtSVQ
-https://disk.yandex.ru/i/upmiNBUouFcJsA 
-(не сочтите за грубость, пожалуйста, просто хотела объяснить почему тут я поставила такой
-цвет👉👈. Спасибо за замечание!)*/
-.title {
-  grid-column: 1 / 3;
-  justify-self: start;
-  text-shadow: 4px 4px 0 var(--common_col); /* изменяем цвет при уменьшении экрана */
-  line-height: var(--small_line);
+.header_footer_title {
+  color: var(--header_color);
+  font-weight: var(--bold);
+  font-size: var(--page_title_font);
+  line-height: var(--persent);
+  text-shadow: 4px 4px 0 var(--decor_color);
+}
+
+.shadow {
+  text-shadow: 2px 2px 0 var(--decor_color);
 }
 
 .header_text {
-  grid-column: 1 / 3;
-  justify-content: end;
-  display: inline-block;
-}
-
-/*Этот элемент используется для многих текстов */
-.title_decor {
-  color: var(--text_head);
-  background-color: var(--common_col);
-  font-size: var(--fs-base);
+  margin-block: calc(var(--gap) * 5 + 5px);
+  color: var(--letters);
   font-weight: var(--bold);
-  grid-column: 1 / 4;
-  max-width: 1183px;
+  font-size: inherit;
+  line-height: inherit;
+  background: var(--decor_color);
 }
 
-/*Основная часть состоит из контента*/
-.main, .content, .pictures_conteiner {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-}
-
+/*Главный блок*/
 .main {
-  padding: var(--gap) calc(var(--gap) * 4);
-  grid-auto-flow: column;
+  display: grid;
   gap: calc(var(--gap) * 5);
+  padding: calc(var(--gap) * 4) var(--gap);
 }
 
-.content {
-  grid-column: 1 / 4;
+/*Стили для карточек*/
+.card {
+  display: grid;
   gap: calc(var(--gap) * 2);
 }
 
-.card {
-  grid-column: 1 / 4;
-  display: grid;
-  grid-template-rows: min-content auto;
-  grid-auto-flow: row;
-  row-gap: var(--gap);
-}
-
-.content_title, .text {
-  line-height: var(--large-line);
-  grid-column: 1 / 4;
-  font-size: var(--fs-base);
-  color: var(--text);
-}
-
-.content_title {
-  color: var(--text_head);
+/*Для всех заголовков*/
+.card_title {
+  color: var(--border_color);
   font-weight: var(--bold);
+  font-size: inherit;
+  line-height: inherit;
 }
 
+/*Для h3, h4*/
+.title_decor {
+  color: var(--letters);
+  background: var(--decor_color);
+}
+
+/*Оформляем ссылки
+Аналогично предыдущему примечанию: в Опере GX они работают по-другому*/
 .link {
   text-decoration: none;
-  text-shadow: 2px 2px 0 var(--common_col);
 }
 
 .link:hover {
-  border-bottom: 1px solid var(--text);
+  text-decoration: underline;
 }
 
 .link:focus {
-  outline: none;
+  outline: 0;
 }
 
 .link:focus-visible {
   outline: 1px solid currentColor;
-  outline-offset: -1px;
 }
 
-/*Создаём 'воронку', как в уроках*/
+.content {
+  display: grid;
+  gap: calc(var(--gap) * 2);
+}
 
-.pictures_conteiner {
-  grid-column: 1 / 4;
+.article {
+  display: grid;
   gap: var(--gap);
 }
 
-.img { 
-  grid-column: 1 / 4; 
-  width: 100%; 
-  height: 100%; 
-  object-fit: cover;
-} 
-
-/*Названия советов - обычный текст*/
-.normal {
-  font-weight: var(--normal);
+/*Оформляем блок картинок*/
+.gallery {
+  gap: var(--gap);
 }
 
-/*подвал*/
-.footer {
-  padding: var(--gap);
-  block-size: 100vh;
+.card_recommendations {
+  margin-block-end: calc(var(--gap) * 2);
+}
+
+.gallery_list {
   display: grid;
+  gap: var(--gap);
 }
 
-/*Некоторые правила совпадают с шапкой*/
-.footer_title {
-  justify-self: center;
-  align-self: center;
-  color: var(--head_col);
-  text-shadow: 2px 2px 0 var(--common_col);
-  font-size: var(--mobile-fs);
-  line-height: var(--line);
+.image {
+  display: block;
+  object-fit: cover;
+  object-position: center;
+  block-size: var(--persent);
+  inline-size: var(--persent);
+}
+
+/*Подвал*/
+.footer {
+  place-items: center;
+}
+
+/*Названия для блока совет имеют обычный шрифт, не жирный*/
+.normal {
+  font-weight: var(--normal); 
 }
 
 @media (width >= 768px) {
-  .header {
-    padding: calc(var(--gap) * 2);
+  .rec {
+    inset-inline-end: calc(var(--gap) * 2 + 8px);
+    inset-block-start: calc(var(--gap) * 2);
   }
 
-  .title {
-    position: relative;
-    margin-inline-start: -20px;
-    font-size: var(--desk-fs);
-    text-shadow: 4px 4px 0 var(--big-title-shadow);
-  }
-
-  .header_txt {
-    grid-column: 2 / 3;
-  }
-
-  .main {
-    margin-block: calc(var(--gap) * 6);
-    padding-inline: calc(var(--gap) * 2);
-    row-gap: calc(var(--gap) * 8);
-  }
-
-  .content {
-    grid-template-columns: 1fr 2fr;
-    margin-bottom: var(--gap);
-  }
-
-  .content_title {
-    grid-column: 1 / 2;
-    grid-row: 1 / 3;
-    color: var(--decor_col)
+  .header_footer_title {
+    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
   }
 
   .card {
-    grid-column: 2 / 3;
+    grid-template-columns: clamp(236px, calc(var(--persent) / 3.25), 315px) 1fr;
   }
 
-  .content > .title_decor {
-    grid-column: 2 / 3;
+  .card_attention {
+    grid-column-start: span 2;
   }
 
-  .pictures_conteiner {
+  .gallery {
+    grid-template-columns: 1fr;
     gap: calc(var(--gap) * 2);
   }
 
-/*Здесь я долго мучалась, но как отобразить картинки
-без ображения к ним так и не поняла(*/
-.img {
-  object-fit: cover;
-  object-position: center;
-} 
+  .card_recommendations_list {
+    grid-column-start: 2;
+  }
 
-.img:nth-child(2) {
-  grid-column: 1 / 3;
-} 
+  .gallery_list {
+    grid-template-columns: repeat(3, 1fr);
+    gap: calc(var(--gap) * 2);
+  }
 
-.img:nth-child(3) {
-  grid-column: 3 / 4;
-  grid-row: 2 / 4;
-} 
+  .gallery_list_item:first-child,
+  .gallery_list_item:last-child {
+    grid-column-start: span 2;
+  }
 
-.img:nth-child(4) {
-  grid-column: 1 / 2;
-  grid-row: 3 / 5;
-} 
+  .gallery_list_item:nth-child(2),
+  .gallery_list_item:nth-child(3) {
+    grid-row-start: span 2;
+  }
 
-.img:nth-child(5) {
-  grid-column: 2 / 3;
-  grid-row: 3 / 4;
-}
+  .header {
+    padding-inline-start: 0;
+  }
 
-.img:nth-child(6) {
-  grid-column: 2 / 4;
-  grid-row: 4 / 5;
-}
+  .header__theme-menu {
+    margin-block-start: calc(var(--gap) * 17);
+    margin-block-end: calc(var(--gap) * 7);
+  }
 
-  .footer {
-    padding: calc(var(--gap) * 2);
+  .header_text {
+    justify-self: end;
+    inline-size: clamp(364px, calc(var(--persent) / 2 - 10px), 491px);
+  }
+
+  .main {
+    gap: calc(var(--gap) * 8);
+    padding: calc(var(--gap) * 6) calc(var(--gap) * 2);
   }
 }
 
 @media (width >= 1024px) {
-  .title, .footer_title {
-    font-size: var(--desk-fs);
-  }
-
-  .header__theme-menu {
-    align-self: start;
-    justify-self: center;
-  }
-
-  .header__theme-menu-list {
-    grid-auto-flow: column;
-  }
-
-  .content {
-    grid-template-columns: repeat(3, 1fr);
+  /*Переместила однаковые цвета сюда
+  https://disk.yandex.ru/i/upmiNBUouFcJsA*/
+  .header_footer_title {
+    text-shadow: 4px 4px 0 #ff0070;
   }
 
   .card {
-    grid-column: 2 / 4;
+    column-gap: calc(var(--gap) * 3);
   }
 
-  .content_title {
-    grid-row: span 1;
+  .card_attention {
+    grid-template-columns: repeat(3, 1fr);
   }
 
-  .content:nth-child(2) .card {
-    grid-row: 2 / 3 ;
-    grid-column: span 1;
+  .header__theme-menu {
+    justify-self: center;
+    margin-inline-start: calc(var(--gap) * 2);
+    margin-block-start: 0;
+    margin-block-end: calc(var(--gap) * 21 + 5px);
   }
 
-  .content > .title_decor {
-    grid-column: 2 / 4;
-  }
-  .text {
-   line-height: var(--large-line);
-  }
-  
-  .decorated-zone::before {
-    top: calc(var(--gap) * 2);
-    right: calc(var(--gap) * 2);
-  }
-  
-  .decorated-zone::after {
-    bottom: calc(var(--gap) * 2);
-    left: calc(var(--gap) * 2);
-  }
-
-  .content_title {
-    color: var(--decor_col);
-  }
-}
-
-@media (width < 768px) {
-  .content_title {
-    color: var(--decor_col);
-  }
-
-  .text {
-    line-height: var(--large_line);
-  }
-
-  .content {
-    column-gap: 30px;
-  }
-
-  .main {
-    padding: var(--gap);
-  }
-}
-
-@media (width <= 375) {
-  .content_title {
-    color: var(--decor_col);
+  .header__theme-menu-list {
+    flex-direction: row;
   }
 }
