@@ -18,7 +18,7 @@
   padding: var(--header_footer_paddings);
   min-block-size: 100vh;
   min-height: 668px;
-  height: 100%;
+  height: 100vh;
 }
 
 /*Шапка*/
