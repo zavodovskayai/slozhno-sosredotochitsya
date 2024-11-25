@@ -134,7 +134,7 @@
   color: var(--header_color);
   font-weight: var(--bold);
   font-size: var(--page_title_font);
-  line-height: var(--persent);
+  line-height: calc(var(--persent) - 15%);
   text-shadow: 4px 4px 0 var(--decor_color);
 }
 
