@@ -1,6 +1,6 @@
 :root {
   --font_family: "IBM Plex mono", monospace;
-  --background-image: url("../images/cover-image.png");
+  --background_image: url("../images/cover-image.png");
   --gap: 10px;
   --font: 18px;
   --lines_and_blocks: 25px;
