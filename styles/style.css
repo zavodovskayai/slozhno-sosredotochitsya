@@ -134,7 +134,7 @@
   color: var(--header_color);
   font-weight: var(--bold);
   font-size: var(--page_title_font);
-  line-height: calc(var(--persent) - 20%);
+  line-height: var(--persent);
   text-shadow: 4px 4px 0 var(--decor_color);
 }
 
@@ -323,7 +323,7 @@
   }
 }
 
-@media (375 < width <= 768px) {
+@media (width <= 768px) {
   .rec {
     top: calc(var(--gap) * 2 );
     right: calc(var(--gap) * 3 )
@@ -333,5 +333,6 @@
 @media (width <= 375px) {
   .rec {
     top: calc(var(--gap) * 2 );
+    right: calc(var(--gap) * 2 )
   }
 }
