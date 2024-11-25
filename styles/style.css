@@ -124,16 +124,16 @@
   border-block-end-color: currentColor;
 }
 
+.shadow {
+  text-shadow: 2px 2px 0 var(--decor_color);
+}
+
 .header_footer_title {
   color: var(--header_color);
   font-weight: var(--bold);
   font-size: var(--page_title_font);
-  line-height: var(--persent);
+  line-height: calc(var(--persent) - 20%);
   text-shadow: 4px 4px 0 var(--decor_color);
-}
-
-.shadow {
-  text-shadow: 2px 2px 0 var(--decor_color);
 }
 
 .header_text {
@@ -229,7 +229,7 @@
 
 /*Названия для блока совет имеют обычный шрифт, не жирный*/
 .normal {
-  font-weight: var(--normal); 
+  font-weight: var(--normal);
 }
 
 @media (width >= 768px) {
