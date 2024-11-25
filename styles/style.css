@@ -17,7 +17,7 @@
   display: grid;
   padding: var(--header_footer_paddings);
   min-block-size: 100vh;
-  min-height: 100vh;
+  min-height: 668px;
 }
 
 /*Шапка*/
@@ -324,6 +324,7 @@
 
 @media (width <= 768px) {
   .rec {
-    padding-top: var(--gap);
+    top: calc(var(--gap) * 2 );
+    right: calc(var(--gap) * 3 )
   }
 }
