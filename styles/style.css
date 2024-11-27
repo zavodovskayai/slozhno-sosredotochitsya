@@ -322,7 +322,7 @@
   }
 }
 
-/*@media (width <= 768px) {
+@media (width <= 768px) {
   .rec {
     top: calc(var(--gap) * 2 );
     right: calc(var(--gap) * 3 );
