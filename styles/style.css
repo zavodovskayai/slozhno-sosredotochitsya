@@ -6,7 +6,7 @@
   line-height: calc(var(--lines_and_blocks) - 1.6px);
   background-color: var(--background_color);
   background-image: var(--background_image);
-  background-position: center;
+  background-position: bottom;
   background-size: cover;
   background-attachment: fixed;
 }
@@ -16,7 +16,6 @@
 .footer {
   display: grid;
   padding: var(--header_footer_paddings);
-  min-block-size: 100vh;
   min-height: 668px;
   height: 100vh;
 }
@@ -323,16 +322,9 @@
   }
 }
 
-@media (width <= 768px) {
+/*@media (width <= 768px) {
   .rec {
     top: calc(var(--gap) * 2 );
-    right: calc(var(--gap) * 3 )
-  }
-}
-
-@media (width <= 375px) {
-  .rec {
-    top: calc(var(--gap) * 2 );
-    right: calc(var(--gap) * 2 )
+    right: calc(var(--gap) * 3 );
   }
 }
