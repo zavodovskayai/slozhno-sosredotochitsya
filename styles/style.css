@@ -63,6 +63,8 @@
   gap: var(--gap);
   inset-inline-end: calc(var(--gap) * 2);
   inset-block-start: var(--gap);
+  top: var(--gap);
+  right: calc(var(--gap) * 2 );
 }
 
 /*Создание надписи для тёмной темы
@@ -79,7 +81,7 @@
   content: "";
   display: inline-block;
   border-radius: calc(var(--persent)/2);
-  box-shadow: 0 0 4px 3px var(--decor_color);
+  box-shadow: 0 0 4px 2px var(--decor_color);
   background: var(--decor_color);
   inline-size: calc(var(--gap) * 0.9);
   block-size: calc(var(--gap) * 0.9);
@@ -89,12 +91,14 @@
 .header__theme-menu {
   justify-self: end;
   margin-block: calc(var(--gap) * 6 - 5px);
+  margin-block-start: calc(var(--gap) * 6 + 2px);
 }
 
 .header__theme-menu-list {
   display: flex;
   flex-direction: column;
-  gap: calc(var(--gap) + 2px);
+  gap: calc(var(--gap) - 2px );
+  margin-block-end: 10px;
 }
 
 .header__theme-menu-button {
@@ -133,7 +137,7 @@
   color: var(--header_color);
   font-weight: var(--bold);
   font-size: var(--page_title_font);
-  line-height: calc(var(--persent) - 15%);
+  line-height: calc(var(--persent) - 18%);
   text-shadow: 4px 4px 0 var(--decor_color);
 }
 
@@ -235,12 +239,33 @@
 
 @media (width >= 768px) {
   .rec {
-    inset-inline-end: calc(var(--gap) * 2 + 8px);
+    inset-inline-end: calc(var(--gap) * 3 - 1px);
     inset-block-start: calc(var(--gap) * 2);
+  }
+
+  .header {
+    padding-inline-start: 0;
+  }
+
+  .header__theme-menu {
+    margin-block-start: calc(var(--gap) * 17 - 1px);
+    margin-block-end: calc(var(--gap) * 7 - 3px);
+  }
+
+  .header__theme-menu-list {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--gap) - 2px );
+    margin-block-end: 0px;
   }
 
   .focus_title {
     font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+  }
+
+  .header_text {
+    justify-self: end;
+    inline-size: clamp(364px, calc(var(--persent) / 2 - 10px), 491px);
   }
 
   .card {
@@ -275,20 +300,6 @@
     grid-row-start: span 2;
   }
 
-  .header {
-    padding-inline-start: 0;
-  }
-
-  .header__theme-menu {
-    margin-block-start: calc(var(--gap) * 17);
-    margin-block-end: calc(var(--gap) * 7);
-  }
-
-  .header_text {
-    justify-self: end;
-    inline-size: clamp(364px, calc(var(--persent) / 2 - 10px), 491px);
-  }
-
   .main {
     gap: calc(var(--gap) * 8);
     padding: calc(var(--gap) * 6) calc(var(--gap) * 2);
@@ -296,8 +307,27 @@
 }
 
 @media (width >= 1024px) {
-  /*Переместила однаковые цвета сюда
-  https://disk.yandex.ru/i/upmiNBUouFcJsA*/
+  .header {
+   padding-top: 17px;;
+  }
+
+  .rec {
+    inset-inline-end: calc(var(--gap) * 3);
+    inset-block-start: calc(var(--gap) * 2);
+  }
+
+  .header__theme-menu-list {
+    gap: calc(var(--gap) + 1px);
+    flex-direction: row;
+  }
+
+  .header__theme-menu {
+    justify-self: center;
+    margin-inline-start: calc(var(--gap) * 2);
+    margin-block-start: 0;
+    margin-block-end: calc(var(--gap) * 22 - 3px);
+  }
+
   .focus_title {
     text-shadow: 4px 4px 0 var(--big_screen_shadow);
   }
@@ -308,23 +338,5 @@
 
   .card_attention {
     grid-template-columns: repeat(3, 1fr);
-  }
-
-  .header__theme-menu {
-    justify-self: center;
-    margin-inline-start: calc(var(--gap) * 2);
-    margin-block-start: 0;
-    margin-block-end: calc(var(--gap) * 21 + 5px);
-  }
-
-  .header__theme-menu-list {
-    flex-direction: row;
-  }
-}
-
-@media (width <= 768px) {
-  .rec {
-    top: calc(var(--gap) * 2 );
-    right: calc(var(--gap) * 3 );
   }
 }
